@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
 
-interface ColumnProps<T> {
+export interface ColumnProps<T> {
   label: string;
-  value: keyof T;
+  value?: keyof T;
 }
 
-interface tableProps<T> {
+export interface TableProps<T> {
   column: ColumnProps<T>[];
   data: T[];
 }
-const Table = <T,>({ column, data }: tableProps<T>) => {
+const Table = <T,>({ column, data }: TableProps<T>) => {
   return (
     <div className="mt-8">
       <table className="border">
@@ -25,12 +25,13 @@ const Table = <T,>({ column, data }: tableProps<T>) => {
           </tr>
         </thead>
         <tbody className="border">
-          {data.map((productName, i: number) => {
+          {data.map((productName, i) => {
             return (
               <tr key={i} className="border">
                 {column.map((columnData) => {
-                  console.log(columnData);
-                  const value = productName[columnData.value] as ReactNode;
+                  const value =
+                    columnData.value &&
+                    (productName[columnData.value] as ReactNode);
                   return <td key={columnData.label}>{value}</td>;
                 })}
               </tr>
