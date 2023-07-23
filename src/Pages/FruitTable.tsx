@@ -4,6 +4,7 @@ type ColumnProp = {
   color: string;
   category: string;
 };
+
 const fruitTable = () => {
   const column: ColumnProps<ColumnProp>[] = [
     { label: "Product Name", value: "name" },
@@ -11,9 +12,9 @@ const fruitTable = () => {
     { label: "Category", value: "category" },
     { label: "Action", value: undefined },
   ];
-  const data = [
+  const data: ColumnProp[] = [
     { name: "Mango", color: "Yellow", category: "Fruit" },
-    { name: "Apple", color: "Yellow", category: "Fruit" },
+    { name: "Apple", color: "Red ", category: "Fruit" },
     { name: "Orange", color: "Yellow", category: "Fruit" },
     { name: "Banana", color: "Yellow", category: "Fruit" },
     { name: "Dragon", color: "Yellow", category: "Fruit" },
@@ -21,7 +22,7 @@ const fruitTable = () => {
   ];
   return (
     <div>
-      <Table column={column} data={data} />
+      <Table<ColumnProp> column={column} data={data} />
     </div>
   );
 };

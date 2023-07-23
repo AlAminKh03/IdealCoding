@@ -1,8 +1,9 @@
 import "./App.css";
-import FruitTable from "./Pages/fruitTable";
+import FruitTable from "./Pages/FruitTable";
 import BasicCard from "./Pages/BasicCard";
 import GoldenCard from "./Pages/GoldenCard";
 import PremiumCard from "./Pages/PremiumCard";
+import FlowerTable from "./Pages/FlowerTable";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <GoldenCard />
       </div>
       <FruitTable />
+      <FlowerTable />
     </div>
   );
 }
